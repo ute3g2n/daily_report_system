@@ -83,6 +83,7 @@ public abstract class ActionBase {
 	* @throws IOException
 	*/
 	protected void forward(ForwardConst target) throws ServletException, IOException {
+
 		//jspファイルの相対パスを作成
 		String forward = String.format("/WEB-INF/views/%s.jsp", target.getValue());
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forward);

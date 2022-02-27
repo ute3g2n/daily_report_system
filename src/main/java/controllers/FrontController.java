@@ -29,6 +29,9 @@ public class FrontController extends HttpServlet {
 		//パラメータに該当するActionクラスのインスタンス
 		ActionBase action = getAction(request, response);
 		
+		//サーブレットコンテキスト、リクエスト、レスポンスをActionインスタンスのフィールドに設定
+		action.init(getServletContext(), request, response);
+		
 		//Actionクラスの処理を呼び出し
 		action.process();
     }
