@@ -5,20 +5,19 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>日報管理システム</title>
-		<link rel="stylesheet" href="<c:url value='/css/reset.css' />">
-		<link rel="stylesheet" href="<c:url value='/css/style.css' />">
-	</head>
-<body>
-	<div id="wrapper">
-		<div id="header">
-			<div id="header_menu">
-				<h1>日報管理システム</h1>
+			<title><c:out value="日報管理システム" /></title>
+			<link rel="stylesheet" href="<c:url value='/css/reset.css' />">
+			<link rel="stylesheet" href="<c:url value='/css/style.css' />">
+		</head>
+		<body>
+			<div id="wrapper">
+				<div id="header">
+					<div id="header_menu">
+						<h1>日報管理システム</h1>
+					</div>
+				</div>
+				<div id="content">${param.content}</div>
+				<div id="footer">by Taro Kirameki.</div>
 			</div>
-		</div>
-
-		<div id="content">${param.content}</div>
-		<div id="footer">by Taro Kirameki.</div>
-	</div>
-</body>
+	</body>
 </html>
