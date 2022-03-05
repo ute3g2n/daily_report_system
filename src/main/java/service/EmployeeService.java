@@ -122,11 +122,6 @@ public class EmployeeService extends ServiceBase {
 			create(ev);
 		}
 
-		//エラーを返却(エラーがなければデータを登録する)
-		if(errors.size() == 0){
-			create(ev);
-		}
-
 		//エラーを返却(エラーがなければ0件の空リスト)
 		return errors;
 	}
