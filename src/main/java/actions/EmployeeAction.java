@@ -45,7 +45,7 @@ public class EmployeeAction extends ActionBase {
 
 		//管理者かどうかのチェック
 		if (checkAdmin()) {
-			
+
 			//指定されたページ数の一覧画面に表示するデータを取得
 			int page = getPage();
 			List<EmployeeView> employees = service.getPerPage(page);
@@ -64,10 +64,10 @@ public class EmployeeAction extends ActionBase {
 				putRequestScope(AttributeConst.FLUSH, flush);
 				removeSessionScope(AttributeConst.FLUSH);
 			}
-			
+
 			//一覧画面を表示
 			forward(ForwardConst.FW_EMP_INDEX);
-		
+
 		}
 	}
 
@@ -78,13 +78,13 @@ public class EmployeeAction extends ActionBase {
 	*/
 
 	public void entryNew() throws ServletException, IOException {
-		
+
 		//管理者かどうかのチェック
 		if (checkAdmin()) {
-			
+
 			putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
 			putRequestScope(AttributeConst.EMPLOYEE, new EmployeeView()); //空の従業員インスタンス
-			
+
 			//新規登録画面を表示
 			forward(ForwardConst.FW_EMP_NEW);
 		}
@@ -102,16 +102,15 @@ public class EmployeeAction extends ActionBase {
 		if(checkToken() && checkAdmin()) {
 
 			//パラメータの値を元に従業員情報のインスタンスを作成する
-			EmployeeView ev = new EmployeeView(
-				null,
-				getRequestParam(AttributeConst.EMP_CODE),
-				getRequestParam(AttributeConst.EMP_NAME),
-				getRequestParam(AttributeConst.EMP_PASS),
-				toNumber(getRequestParam(AttributeConst.EMP_ADMIN_FLG)),
-				null,
-				null,
-				AttributeConst.DEL_FLAG_FALSE.getIntegerValue()
-			);
+            EmployeeView ev = new EmployeeView(
+                    null,
+                    getRequestParam(AttributeConst.EMP_CODE),
+                    getRequestParam(AttributeConst.EMP_NAME),
+                    getRequestParam(AttributeConst.EMP_PASS),
+                    toNumber(getRequestParam(AttributeConst.EMP_ADMIN_FLG)),
+                    null,
+                    null,
+                    AttributeConst.DEL_FLAG_FALSE.getIntegerValue());
 
 			//アプリケーションスコープからpepper文字列を取得
 			String pepper = getContextScope(PropertyConst.PEPPER);
@@ -148,7 +147,7 @@ public class EmployeeAction extends ActionBase {
 	 * @throws IOException
 	 */
 	public void show() throws ServletException, IOException {
-		
+
 		//管理者かどうかのチェック
 		if (checkAdmin()) {
 
@@ -166,7 +165,7 @@ public class EmployeeAction extends ActionBase {
 
 			// 詳細画面を表示
 			forward(ForwardConst.FW_EMP_SHOW);
-			
+
 		}
 	}
 
@@ -177,10 +176,10 @@ public class EmployeeAction extends ActionBase {
 	 * @throws IOException
 	 */
 	public void edit() throws ServletException, IOException {
-		
+
 		//管理者かどうかのチェック
 		if (checkAdmin()) {
-			
+
 			//idを条件に従業員データを取得する
 			EmployeeView ev = service.findOne(toNumber(getRequestParam(AttributeConst.EMP_ID)));
 
@@ -196,7 +195,7 @@ public class EmployeeAction extends ActionBase {
 
 			//編集画面を表示する
 			forward(ForwardConst.FW_EMP_EDIT);
-		
+
 		}
 	}
 

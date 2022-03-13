@@ -52,7 +52,7 @@ public class TopAction extends ActionBase{
 		long myReportsCount = service.countAllMine(loginEmployee);
 
 		putRequestScope(AttributeConst.REPORTS, reports); //取得した日報データ
-		putRequestScope(AttributeConst.REP_CONTENT, myReportsCount); //ログイン中の従業員が作成した日報
+		putRequestScope(AttributeConst.REP_COUNT, myReportsCount); //ログイン中の従業員が作成した日報
 		putRequestScope(AttributeConst.PAGE, page); //ページ数
 		putRequestScope(AttributeConst.MAX_ROW, JpaConst.ROW_PER_PAGE); //1ページに表示するレコード数
 

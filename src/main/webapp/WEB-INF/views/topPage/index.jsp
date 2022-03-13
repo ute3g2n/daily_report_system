@@ -14,16 +14,16 @@
 
 <c:import url="../layout/app.jsp">
 	<c:param name="content">
-		
+
 		<c:if test="${flush != null}">
 			<div id="flush_success">
 				<c:out value="${flush}"></c:out>
 			</div>
 		</c:if>
-		
+
 		<h2>日報管理システムへようこそ</h2>
 		<h3>【自分の日報　一覧】</h3>
-		
+
 		<table id="report_list">
 			<tbody>
 				<tr>
@@ -43,10 +43,10 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
+
 		<div id="pagination">
 			（全 ${reports_count} 件）<br />
-			<c:forEach var="i" begin="1" end="${((reports_cont - 1) / maxRow) + 1}" step="1">
+			<c:forEach var="i" begin="1" end="${((reports_count - 1) / maxRow) + 1}" step="1">
 				<c:choose>
 					<c:when test="${i == page}">
 						<c:out value="${i}" />&nbsp;
@@ -57,8 +57,8 @@
 				</c:choose>
 			</c:forEach>
 		</div>
-		
+
 		<p><a href="<c:url value='?action=${actRep}&command=${commNew}' />">新規日報の登録</a></p>
-		
+
 	</c:param>
 </c:import>
